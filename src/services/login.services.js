@@ -20,7 +20,7 @@ const login = async (email, password) => {
     
       const token = createToken(payload);
     
-      return { type: 200, data: { token } };
+      return { type: 200, result: { token } };
 };
 
 module.exports = { login };
