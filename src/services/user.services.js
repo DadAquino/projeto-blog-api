@@ -34,11 +34,11 @@ const getAllUsers = async () => {
       if (!allUsers) {
         return { 
           type: 500, 
-          data: { message: 'No registered users' }, 
+          result: { message: 'No registered users' }, 
         };
       }
     
-      return { type: 200, data: allUsers };
+      return { type: 200, result: allUsers };
 };
 
 module.exports = {
