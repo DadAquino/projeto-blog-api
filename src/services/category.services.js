@@ -1,4 +1,4 @@
-const { Category } = require('../models/Category');
+const { Category } = require('../models');
 
 const addCategory = async (name) => {
     const category = await Category.findOne({
@@ -15,7 +15,7 @@ const addCategory = async (name) => {
 
     const newCategory = await Category.create({ name });
 
-    return { type: 200, result: newCategory };
+    return { type: 201, result: newCategory };
 };
 
 module.exports = { addCategory };
