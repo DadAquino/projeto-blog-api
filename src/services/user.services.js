@@ -43,7 +43,7 @@ const getAllUsers = async () => {
 
 const getUserById = async (id) => {
     const user = await User.findOne({
-        attributes: { excludes: ['password'] },
+        attributes: { exclude: ['password'] },
         where: { id },
     });
 
