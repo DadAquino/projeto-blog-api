@@ -14,4 +14,12 @@ const findAll = async (req, res) => {
     return res.status(type).json(result);
 };
 
-module.exports = { addNew, findAll };
+const findById = async (req, res) => {
+    const { id } = req.params;
+
+    const { type, result } = await userServices.getUserById(id);
+
+    res.status(type).json(result);
+};
+
+module.exports = { addNew, findAll, findById };
