@@ -18,4 +18,10 @@ const addCategory = async (name) => {
     return { type: 201, result: newCategory };
 };
 
-module.exports = { addCategory };
+const getAllCategories = async () => {
+    const categories = await Category.findAll();
+
+    return { type: 200, result: categories };
+};
+
+module.exports = { addCategory, getAllCategories };

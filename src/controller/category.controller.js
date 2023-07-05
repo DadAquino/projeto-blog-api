@@ -8,4 +8,10 @@ const addCategory = async (req, res) => {
     return res.status(type).json(result);
 };
 
-module.exports = { addCategory };
+const getAllCategories = async (_req, res) => {
+    const { type, result } = await categoryServices.getAllCategories();
+
+    res.status(type).json(result);
+};
+
+module.exports = { addCategory, getAllCategories };
