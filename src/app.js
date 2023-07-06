@@ -3,7 +3,8 @@ const { loginController,
   userController, categoryController, postController } = require('./controller');
 const { 
   loginValidations, 
-  userValidations, categoryValidation, postValidator } = require('./middlewares/validations');
+  userValidations, categoryValidation, postValidator,
+   updateValidator } = require('./middlewares/validations');
 const { tokenValidator } = require('./middlewares/tokenValidator');
 
 // ...
@@ -32,7 +33,7 @@ app.post('/post', tokenValidator, postValidator, postController.createPost);
 app.get('/post/:id', tokenValidator, postController.getPostById);
 app.get('/post', tokenValidator, postController.getPost);
 
-app.put('/post/:id', tokenValidator, postController.updatePost);
+app.put('/post/:id', tokenValidator, updateValidator, postController.updatePost);
 
 app.delete('/post/:id', tokenValidator, postController.deletePost);
 
