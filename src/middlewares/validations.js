@@ -68,4 +68,20 @@ const postValidator = async (req, res, next) => {
     next();
   };
 
-module.exports = { loginValidations, userValidations, categoryValidation, postValidator };
+  const updateValidator = async (req, res, next) => {
+    const { title, content } = req.body;
+  
+    if (!title || !content) {
+      return res.status(400)
+      .json({ message: 'Some required fields are missing' });
+    }
+  
+    next();
+  };
+
+module.exports = { 
+    loginValidations, 
+    userValidations, 
+    categoryValidation, 
+    postValidator, 
+    updateValidator };

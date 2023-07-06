@@ -29,7 +29,14 @@ app.post('/categories', tokenValidator, categoryValidation, categoryController.a
 app.get('/categories', tokenValidator, categoryController.getAllCategories);
 
 app.post('/post', tokenValidator, postValidator, postController.createPost);
+app.get('/post/:id', tokenValidator, postController.getPostById);
 app.get('/post', tokenValidator, postController.getPost);
+
+app.put('/post/:id', tokenValidator, postController.updatePost);
+
+app.delete('/post/:id', tokenValidator, postController.deletePost);
+
+app.delete('/user/me', tokenValidator, userController.deleteUser);
 
 // É importante exportar a constante `app`,
 // para que possa ser utilizada pelo arquivo `src/server.js`
