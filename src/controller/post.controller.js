@@ -18,7 +18,7 @@ const createPost = async (req, res) => {
   const { title, content, categoryIds } = req.body;
   const { id } = req.user;
 
-  const { type, data } = await postServices({ title, content, userId: id, categoryIds });
+  const { type, data } = await postServices.postPost({ title, content, userId: id, categoryIds });
 
   return res.status(type).json(data);
 };

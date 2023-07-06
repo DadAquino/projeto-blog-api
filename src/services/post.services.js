@@ -50,7 +50,14 @@ const postPost = async ({ title, content, userId, categoryIds }) => {
     };
   }
 
-  const newPost = await BlogPost.create({ title, content, userId });
+  const newPost = await BlogPost.create({ 
+    title, 
+    content,
+    userId,
+    published: Date.now(),
+    updated: Date.now() });
+
+    console.log(newPost);
 
   await PostCategory
   .bulkCreate(categoryIds.map((categoryId) => ({ categoryId, postId: newPost.id })));
